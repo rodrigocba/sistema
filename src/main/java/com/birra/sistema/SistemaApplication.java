@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SistemaApplication {
 
 	public static void main(String[] args) {
+		//comentario
 		SpringApplication.run(SistemaApplication.class, args);
 	}
 
