@@ -43,7 +43,7 @@ public class FabricaService {
                 .orElseThrow(() -> new UserNotFoundException("La Fabrica " + name + " no existe"));
     }
 
-    public void deleteEmployee(Long id) {
+    public void deleteFabrica(Long id) {
         fabricaRepo.deleteFabricaById(id);
     }
 

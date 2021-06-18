@@ -22,6 +22,10 @@ public class Fabrica implements Serializable {
         this.telefono = telefono;
     }
 
+    public Fabrica() {
+
+    }
+
     public Long getId() {
         return id;
     }

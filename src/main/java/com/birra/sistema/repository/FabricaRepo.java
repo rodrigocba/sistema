@@ -11,4 +11,5 @@ public interface FabricaRepo extends JpaRepository<Fabrica, Long> {
 
     Optional<Fabrica> findFabricaById(Long id);
     Optional<Fabrica> findFabricaByNombre(String nombre);
+
 }
