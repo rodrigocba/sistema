@@ -1,16 +1,14 @@
-package com.birra.sistema.entity;
+import com.birra.sistema.entity.Insumo;
 
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class Pedido implements Serializable {
+public class Stock implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private String nombre;
-//    @ManyToOne
-//    @JoinColumn(name = "id")
-//    private Cliente cliente;
+    private Long cantidad;
+//    private Insumo insumo;
 }

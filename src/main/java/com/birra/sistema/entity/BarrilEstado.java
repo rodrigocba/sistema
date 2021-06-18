@@ -3,6 +3,7 @@ package com.birra.sistema.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
+
 public class BarrilEstado implements Serializable {
 
     @Id

@@ -5,16 +5,20 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Pago implements Serializable {
+public class Gasto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
+    private String nombre;
     private Double monto;
     private Date fecha;
+    private String descripcion;
 
-    @ManyToOne (cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
-    @JoinColumn (name="cliente_id")
-    private Cliente cliente;
+    @OneToOne (cascade=CascadeType.ALL)
+    @JoinColumn (name = "id")
+    private GastoTipo tipo;
+
+
 }
