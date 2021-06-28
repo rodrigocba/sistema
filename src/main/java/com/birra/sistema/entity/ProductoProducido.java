@@ -3,7 +3,7 @@ package com.birra.sistema.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class ListaPreciosInsumos implements Serializable {
+public class ProductoProducido implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

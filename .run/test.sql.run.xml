@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/src/main/java/com/birra/sistema/test.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="03e54f6e-dc9e-42ac-82cc-f3164dd24c69" namespace="database/&quot;birramanager&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

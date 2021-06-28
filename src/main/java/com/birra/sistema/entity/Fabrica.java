@@ -3,6 +3,7 @@ package com.birra.sistema.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Fabrica implements Serializable {
@@ -16,6 +17,38 @@ public class Fabrica implements Serializable {
     private String cuit;
     private String direccion;
     private String telefono;
+    private String mail;
+    private String logoUrl;
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
+
+    private String web;
 
     public Fabrica(String nombre, String telefono) {
         this.nombre = nombre;
@@ -85,12 +118,28 @@ public class Fabrica implements Serializable {
                 '}';
     }
 
-    public Fabrica(Long id, String nombre, String razonSocial, String cuit, String direccion, String telefono) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fabrica fabrica = (Fabrica) o;
+        return Objects.equals(id, fabrica.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public Fabrica(Long id, String nombre, String razonSocial, String cuit, String direccion, String telefono, String web, String logoUrl,String mail) {
         this.id = id;
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.web  = web;
+        this.logoUrl = logoUrl;
+        this.mail = mail;
     }
 }

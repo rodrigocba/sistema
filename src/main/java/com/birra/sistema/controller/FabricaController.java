@@ -22,16 +22,16 @@ public class FabricaController {
     @GetMapping("/all")
     public ResponseEntity<List<Fabrica>> getAllFabricas () {
         List<Fabrica> fabricas = fabricaService.findAllFabricas();
-        return new ResponseEntity<>(fabricas, HttpStatus.OK);
+        return ResponseEntity.ok(fabricas);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<Fabrica> getFabricaById (@PathVariable("id") Long id) {
         Fabrica fabrica = fabricaService.findFabricaById(id);
         return new ResponseEntity<>(fabrica, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{nombre}")
+    @GetMapping("/findByName/{nombre}")
     public ResponseEntity<Fabrica> getFabricaByNombre (@PathVariable("nombre") String nombre) {
         Fabrica fabrica = fabricaService.findFabricaByNombre(nombre);
         return new ResponseEntity<>(fabrica, HttpStatus.OK);
@@ -54,4 +54,7 @@ public class FabricaController {
         fabricaService.deleteFabrica(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
+
 }

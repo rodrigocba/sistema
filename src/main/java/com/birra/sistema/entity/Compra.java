@@ -12,11 +12,11 @@ public class Compra implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private Date fecha;
-    @OneToMany ( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
-    private List<Insumo> insumos;
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "id")
-    private Proveedor proveedor;
-    private Double monto;
+//    private Date fecha;
+//    @OneToMany ( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
+//    private List<Insumo> insumos;
+//    @OneToOne (cascade = CascadeType.ALL)
+//    @JoinColumn (name = "id")
+//    private Proveedor proveedor;
+//    private Double monto;
 }
