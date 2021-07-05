@@ -2,6 +2,8 @@ package com.birra.sistema.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
+
 @Entity
 public class Insumo implements Serializable {
 
@@ -11,7 +13,7 @@ public class Insumo implements Serializable {
     private Long id;
     private String nombre;
 
-    @OneToOne (cascade=CascadeType.ALL)
+    @OneToOne
     @JoinColumn (name = "unidad_medida_id")
     private UnidadDeMedida unidadDeMedida;
 
@@ -51,4 +53,16 @@ public class Insumo implements Serializable {
         this.unidadDeMedida = unidadDeMedida;
     }
 
-   }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Insumo insumo = (Insumo) o;
+        return Objects.equals(nombre, insumo.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
+    }
+}

@@ -25,7 +25,7 @@ public class InsumoController {
         return ResponseEntity.ok(insumos);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<Insumo> getInsumoById (@PathVariable("id") Long id) {
         Insumo insumo = insumoService.findInsumoById(id);
         return new ResponseEntity<>(insumo, HttpStatus.OK);

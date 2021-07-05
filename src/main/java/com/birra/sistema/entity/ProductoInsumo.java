@@ -1,38 +1,48 @@
 package com.birra.sistema.entity;
 
+import org.hibernate.loader.collection.OneToManyJoinWalker;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 //Este producto representa a lo que vende un proveedor bolsa de malta = 25kg de malta, etc
+
 @Entity
+@Table(name = "producto_insumo")
 public class ProductoInsumo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @OneToMany (mappedBy = "productoInsumo", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
-    private List<ProductoInsumoDetalle> detalleProducto;
+
+    @OneToMany (cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn (name="producto_insumo_id")
+    private List<ProductoInsumoDetalle> productoInsumoDetalle;
 
     private String nombre;
 
-    @OneToOne (cascade=CascadeType.ALL)
+    @OneToOne
     @JoinColumn (name = "proveedor_id")
     private Proveedor proveedor;
 
     private Double precioActual;
     private Date fechaActualizacion;
+    private String descripcion;
 
-    public ProductoInsumo(List<ProductoInsumoDetalle> detalleProducto, String nombre, Proveedor proveedor, Double precioActual, Date fechaActualizacion) {
-        this.detalleProducto = detalleProducto;
-        this.nombre = nombre;
-        this.proveedor = proveedor;
-        this.precioActual = precioActual;
-        this.fechaActualizacion = fechaActualizacion;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductoInsumo that = (ProductoInsumo) o;
+        return Objects.equals(id, that.id) && Objects.equals(productoInsumoDetalle, that.productoInsumoDetalle) && Objects.equals(nombre, that.nombre) && Objects.equals(proveedor, that.proveedor) && Objects.equals(precioActual, that.precioActual) && Objects.equals(fechaActualizacion, that.fechaActualizacion) && Objects.equals(descripcion, that.descripcion);
     }
 
-    public ProductoInsumo() {
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, productoInsumoDetalle, nombre, proveedor, precioActual, fechaActualizacion, descripcion);
     }
 
     public Long getId() {
@@ -43,12 +53,12 @@ public class ProductoInsumo {
         this.id = id;
     }
 
-    public List<ProductoInsumoDetalle> getDetalleProducto() {
-        return detalleProducto;
+    public List<ProductoInsumoDetalle> getProductoInsumoDetalle() {
+        return productoInsumoDetalle;
     }
 
-    public void setDetalleProducto(List<ProductoInsumoDetalle> detalleProducto) {
-        this.detalleProducto = detalleProducto;
+    public void setProductoInsumoDetalle(List<ProductoInsumoDetalle> productoInsumoDetalle) {
+        this.productoInsumoDetalle = productoInsumoDetalle;
     }
 
     public String getNombre() {
@@ -81,5 +91,26 @@ public class ProductoInsumo {
 
     public void setFechaActualizacion(Date fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public ProductoInsumo(Long id, List<ProductoInsumoDetalle> productoInsumoDetalle, String nombre, Proveedor proveedor, Double precioActual, Date fechaActualizacion, String descripcion) {
+        this.id = id;
+        this.productoInsumoDetalle = productoInsumoDetalle;
+        this.nombre = nombre;
+        this.proveedor = proveedor;
+        this.precioActual = precioActual;
+        this.fechaActualizacion = fechaActualizacion;
+        this.descripcion = descripcion;
+    }
+
+    public ProductoInsumo() {
     }
 }

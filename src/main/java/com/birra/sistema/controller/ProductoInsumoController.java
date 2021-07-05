@@ -25,7 +25,7 @@ public class ProductoInsumoController {
         return ResponseEntity.ok(productoInsumos);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<ProductoInsumo> getProductoInsumoById (@PathVariable("id") Long id) {
         ProductoInsumo productoInsumo = productoInsumoService.findProductoInsumoById(id);
         return new ResponseEntity<>(productoInsumo, HttpStatus.OK);
@@ -40,6 +40,7 @@ public class ProductoInsumoController {
     @PostMapping("/add")
     public ResponseEntity<ProductoInsumo> addProductoInsumo(@RequestBody ProductoInsumo productoInsumo) {
         ProductoInsumo newProductoInsumo = productoInsumoService.addProductoInsumo(productoInsumo);
+
         return new ResponseEntity<>(newProductoInsumo, HttpStatus.CREATED);
     }
 

@@ -15,15 +15,38 @@ public class Proveedor implements Serializable {
     private String telefono;
     private String web;
     private String direccion;
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    private String razonSocial;
     private String cuit;
 
-    public Proveedor(Long id, String nombre, String telefono, String web, String direccion, String cuit) {
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    private String mail;
+
+    public Proveedor(Long id, String nombre, String razonSocial, String mail, String telefono, String web, String direccion, String cuit) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.web = web;
         this.direccion = direccion;
         this.cuit = cuit;
+        this.mail = mail;
+        this.razonSocial = razonSocial;
+
     }
 
     public Proveedor(String nombre) {

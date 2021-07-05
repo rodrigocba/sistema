@@ -2,7 +2,6 @@ package com.birra.sistema.service;
 
 
 import com.birra.sistema.entity.ProductoInsumo;
-import com.birra.sistema.entity.Fabrica;
 import com.birra.sistema.exception.UserNotFoundException;
 import com.birra.sistema.repository.ProductoInsumoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +17,14 @@ public class ProductoInsumoService {
     private final ProductoInsumoRepo productoInsumoRepo;
 
     @Autowired
-    public ProductoInsumoService(ProductoInsumoRepo productoInsumoRepo) {
+    public ProductoInsumoService(ProductoInsumoRepo productoInsumoRepo ) {
         this.productoInsumoRepo = productoInsumoRepo;
-    }
+           }
 
     public ProductoInsumo addProductoInsumo(ProductoInsumo productoInsumo) {
-        return productoInsumoRepo.save(productoInsumo);
+        ProductoInsumo p =  productoInsumoRepo.save(productoInsumo);
+   
+        return p;
     }
 
     public List<ProductoInsumo> findAllProductoInsumos() {

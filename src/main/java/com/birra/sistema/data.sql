@@ -2,9 +2,11 @@ INSERT INTO fabrica (id,nombre,telefono,logo_url ) VALUES (1,'Woden','123','/upl
 INSERT INTO fabrica (id,nombre,telefono) VALUES (2,'Gronnin','123');
 INSERT INTO empleado_tipo (id,nombre) VALUES (1,'Encargado');
 INSERT INTO empleado (id, nombre, dni, telefono, fabrica_id,tipo_id ) VALUES (1,'Juan','31868247','3513303051',1,1);
-INSERT INTO proveedor (id, nombre) VALUES (1, 'CIBART');
+INSERT INTO proveedor (id, nombre, direccion, mail, telefono, cuit, web, razon_social) VALUES (1, 'CIBART', 'Calderon', 'cibart@cibart', '351333532', '20-555135-0', 'www.cibart.com','Cibart srl');
 INSERT INTO unidad_de_medida (id, nombre) VALUES (1,'Kg');
 INSERT INTO unidad_de_medida (id, nombre) VALUES (2,'Litro');
 INSERT INTO insumo (id,nombre,  unidad_medida_id)  VALUES (1, 'Malta Pilsen',1);
+INSERT INTO insumo (id,nombre,  unidad_medida_id)  VALUES (2, 'Malta caramelo',1);
+INSERT INTO insumo (id,nombre,  unidad_medida_id)  VALUES (3, 'Levadura Us-05',2);
 INSERT INTO producto_insumo (id, nombre, fecha_actualizacion, precio_actual, proveedor_id) VALUES (1,'Malta pilsen x25 kg',current_date,'1500','1');
 INSERT INTO producto_insumo_detalle (id, cantidad, insumo_id, producto_insumo_id) VALUES (1,25,1,1);
