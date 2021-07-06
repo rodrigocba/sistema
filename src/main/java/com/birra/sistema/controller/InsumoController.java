@@ -1,11 +1,12 @@
 package com.birra.sistema.controller;
+
 import com.birra.sistema.entity.Insumo;
 import com.birra.sistema.service.InsumoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class InsumoController {
         Insumo insumo = insumoService.findInsumoByNombre(nombre);
         return new ResponseEntity<>(insumo, HttpStatus.OK);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Insumo> addInsumo(@RequestBody Insumo insumo) {
         Insumo newInsumo = insumoService.addInsumo(insumo);

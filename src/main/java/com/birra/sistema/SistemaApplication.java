@@ -1,6 +1,6 @@
 package com.birra.sistema;
 
-import com.birra.sistema.service.FileService;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,14 +11,12 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 
 @SpringBootApplication
 public class SistemaApplication implements CommandLineRunner {
 
-	@Resource
-	FileService fileService;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SistemaApplication.class, args);
@@ -26,8 +24,7 @@ public class SistemaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... arg) throws Exception{
-	//	fileService.deleteAll();
-	//	fileService.init();
+
 	}
 
 	@Bean
